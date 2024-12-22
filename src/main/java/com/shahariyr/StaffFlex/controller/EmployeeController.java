@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.shahariyr.StaffFlex.entity.Employee;
@@ -14,30 +16,51 @@ import com.shahariyr.StaffFlex.service.EmployeeService;
 @RequestMapping("/employees")
 public class EmployeeController {
 
+	//Constructor Injection of employeeService
 	private EmployeeService employeeService;
 
 	public EmployeeController(EmployeeService theEmployeeService) {
 		this.employeeService = theEmployeeService;
 	}
+	
 
-	// add mapping for "/list"
+	// add mapping to get all employee data.
 	@GetMapping("/list")
 	public String listEmployees(Model theModel) {
 
 		List<Employee> theEmployees = employeeService.findAll();
-		// add to the spring model
-		theModel.addAttribute("employees", theEmployees);
+		theModel.addAttribute("employees", theEmployees); // th:each="tempEmployee : ${employees}"
 
 		return "employee/list-employees";
 	}
 	
+	
+	//add mapping to show employee input form.
 	@GetMapping("/showform")
 	public String showForm(Model theModel) {
 		
 		Employee theEmployee = new Employee();
+		theModel.addAttribute("employee", theEmployee); //th:object ="${employee}"
 		
-		theModel.addAttribute("employee", theEmployee);
 		return "employee/addEmployee";
 	}
+	
+	
+	@PostMapping("/save")
+	private String saveEmployee(@ModelAttribute("employee") Employee theEmployee) {
+		
+		employeeService.save(theEmployee);
+		
+		return "redirect:/employees/list";
+	}
+	
 
 }
+
+
+
+
+
+
+
+
