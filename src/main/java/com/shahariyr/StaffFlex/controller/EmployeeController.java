@@ -36,7 +36,7 @@ public class EmployeeController {
 	
 	
 	//add mapping to show employee input form.
-	@GetMapping("/showform")
+	@GetMapping("/form")
 	public String showForm(Model theModel) {
 		
 		Employee theEmployee = new Employee();
