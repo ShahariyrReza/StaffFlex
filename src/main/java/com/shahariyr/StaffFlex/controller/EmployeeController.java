@@ -17,13 +17,12 @@ import com.shahariyr.StaffFlex.service.EmployeeService;
 @RequestMapping("/employees")
 public class EmployeeController {
 
-	//Constructor Injection of employeeService
+	// Constructor Injection of employeeService
 	private EmployeeService employeeService;
 
 	public EmployeeController(EmployeeService theEmployeeService) {
 		employeeService = theEmployeeService;
 	}
-	
 
 	// add mapping to get all employee data.
 	@GetMapping("/list")
@@ -34,57 +33,44 @@ public class EmployeeController {
 
 		return "employee/list-employees";
 	}
-	
-	
-	//add mapping to show employee input form.
+
+	// add mapping to show employee input form.
 	@GetMapping("/form")
 	public String showForm(Model theModel) {
-		
+
 		Employee theEmployee = new Employee();
-		theModel.addAttribute("employee", theEmployee); //th:object ="${employee}"
-		
+		theModel.addAttribute("employee", theEmployee); // th:object ="${employee}"
+
 		return "employee/addEmployee";
 	}
-	
-	//post mapping for save an employee.
+
+	// post mapping for save an employee.
 	@PostMapping("/save")
 	private String saveEmployee(@ModelAttribute("employee") Employee theEmployee) /* th:object="${employee}" */ {
-		
+
 		employeeService.save(theEmployee);
-		
+
 		return "redirect:/employees/list";
 	}
-	
-	
-	//get mapping for update an employee. 
+
+	// get mapping for update an employee.
 	@GetMapping("/update")
 	public String formForUpdate(@RequestParam("employeeId") int theId, Model theModel) {
-		
+
 		Employee theEmployee = employeeService.findById(theId);
-		
-		theModel.addAttribute("employee", theEmployee); //th:object ="${employee}"
-		
+
+		theModel.addAttribute("employee", theEmployee); // th:object ="${employee}"
+
 		return "employee/addEmployee";
 	}
-	
-	
-	//Mapping for deleting an employee
+
+	// Mapping for deleting an employee
 	@GetMapping("/delete")
 	public String deleteEmployee(@RequestParam("employeeId") int theId) {
-		
+
 		employeeService.deleteById(theId);
-		
+
 		return "redirect:/employees/list";
 	}
-	
-	
 
 }
-
-
-
-
-
-
-
-
