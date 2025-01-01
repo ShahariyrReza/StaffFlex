@@ -36,7 +36,7 @@
 			</thead>
 
 			<tbody>
-				<tr th:each="tempEmployee : ${employees}">
+				<tr th:each="tempEmployee : ${employees}">  <!--theModel.addAttribute("employees", theEmployees); -->
 
 					<td th:text="${tempEmployee.firstName}" />
 					<td th:text="${tempEmployee.lastName}" />
