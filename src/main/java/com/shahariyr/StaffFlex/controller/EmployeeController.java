@@ -20,7 +20,7 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 
 	public EmployeeController(EmployeeService theEmployeeService) {
-		this.employeeService = theEmployeeService;
+		employeeService = theEmployeeService;
 	}
 	
 
@@ -47,7 +47,7 @@ public class EmployeeController {
 	
 	
 	@PostMapping("/save")
-	private String saveEmployee(@ModelAttribute("employee") Employee theEmployee) {
+	private String saveEmployee(@ModelAttribute("employee") Employee theEmployee) /* th:object="${employee}" */ {
 		
 		employeeService.save(theEmployee);
 		
