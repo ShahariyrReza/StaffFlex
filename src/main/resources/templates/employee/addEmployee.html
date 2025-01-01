@@ -20,10 +20,12 @@
         <hr>
 
         <form th:action="@{/employees/save}" th:object="${employee}" method="post">
-
-            <input type="text" th:field="*{firstName}" class="form-control mb-4 w-25" placeholder="First Name">
+        
+        
+            <input type="hidden" th:field="*{id}">
+            <input type="text" th:field="*{firstName}" class="form-control mb-4 w-25" placeholder="First Name" required>
             <input type="text" th:field="*{lastName}" class="form-control mb-4 w-25" placeholder="Last Name">
-            <input type="text" th:field="*{email}" class="form-control mb-4 w-25" placeholder="yourDomain@email.com">
+            <input type="email" th:field="*{email}" class="form-control mb-4 w-25" placeholder="yourDomain@email.com" required>
 
             <button type="submit" class="btn btn-info col-2"> Save Employee</button>
         </form>
