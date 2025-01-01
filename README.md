@@ -27,11 +27,11 @@ StaffFlex is a Java Spring Boot MVC-based **Employee Management System** designe
 src/
 ├── main/
 │   ├── java/
-│   │   ├── com.staffflex/
-│   │   │   ├── controller/
-│   │   │   ├── model/
-│   │   │   ├── repository/
-│   │   │   ├── service/
+│   │   ├── com.shahariyr.StaffFlex/
+│   │   │   ├── com.shahariyr.StaffFlex.controller/
+│   │   │   ├── com.shahariyr.StaffFlex.dao/
+│   │   │   ├── com.shahariyr.StaffFlex.entity/
+│   │   │   ├── com.shahariyr.StaffFlex.service/
 │   ├── resources/
 │   │   ├── templates/
 │   │   │   ├── employee/
