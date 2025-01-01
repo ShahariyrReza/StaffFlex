@@ -14,7 +14,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	private EmployeeRepository employeeRepository;
 
-	// @Autowired
+	// @Autowired is optional for one injection.
 	public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository) {
 		employeeRepository = theEmployeeRepository;
 	}
@@ -26,6 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee findById(int theId) {
+		
 		Optional<Employee> result = employeeRepository.findById(theId);
 
 		Employee theEmployee = null;
