@@ -53,6 +53,18 @@ src/
 
 ---
 
+## 🖼️ **Screenshots**
+### List of Employee
+![List of employee](./Screenshoots/list.png)
+### Save an Employee
+![Save an employee](./Screenshoots/save.png)
+### Update an Employee
+![Update an employee](./Screenshoots/update.png)
+### Delete an Employee
+![Delete an employee](./Screenshoots/delete.png)
+
+---
+
 ## ⚙️ **Setup and Installation**
 
 1. **Clone the Repository:**
@@ -92,19 +104,6 @@ src/
    Open your browser and visit: `http://localhost:8080`
 
 ---
-
-## 🖼️ **Screenshots**
-### List of Employee
-![List of employee](./Screenshoots/list.png)
-### Save an Employee
-![Save an employee](./Screenshoots/save.png)
-### Update an Employee
-![Update an employee](./Screenshoots/update.png)
-### Delete an Employee
-![Delete an employee](./Screenshoots/delete.png)
-
----
-
 ## 🤝 **Contribution**
 Contributions are welcome! If you'd like to contribute, please fork the repository and submit a pull request.
 
