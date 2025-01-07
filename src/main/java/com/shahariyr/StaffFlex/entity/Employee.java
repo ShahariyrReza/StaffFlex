@@ -13,6 +13,7 @@ public class Employee {
 
 	// define fields
 	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
@@ -27,68 +28,119 @@ public class Employee {
 	@Column(name="email")
 	private String email;
 	
+	@Column(name = "mobile")
+	private String mobileNumber;
+
+	
+	
 		
 	// define no argument constructors
-	
+
 	public Employee() {
-		
+		super();
 	}
-	
-	//define all argument constructor
-	public Employee(int id, String firstName, String lastName, String email) {
+
+
+
+
+	public Employee(String firstName, String lastName, String email, String mobileNumber) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.mobileNumber = mobileNumber;
+	}
+
+
+
+
+	public Employee(int id, String firstName, String lastName, String email, String mobileNumber) {
+		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-	}
-	
-	public Employee(String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
+		this.mobileNumber = mobileNumber;
 	}
 
-	// define getter/setter
-	
+
 	public int getId() {
 		return id;
 	}
+
+
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+
+
+
 	public String getFirstName() {
 		return firstName;
 	}
+
+
+
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
+
+
+
 	public String getLastName() {
 		return lastName;
 	}
+
+
+
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
+
+
+
 	public String getEmail() {
 		return email;
 	}
+
+
+
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	// define to string
+
+
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+
+
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+
+
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", mobileNumber=" + mobileNumber + "]";
 	}
-		
+	
+	
 }
 
 
