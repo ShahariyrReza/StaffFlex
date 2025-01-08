@@ -30,6 +30,7 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
+                <th>Address</th>
                 <th align = "center">Action</th>
 
                 </tr>
@@ -44,6 +45,7 @@
                     <td th:text="${tempEmployee.lastName}" />
                     <td th:text="${tempEmployee.email}" />
                     <td th:text="${tempEmployee.mobileNumber}" />
+                    <td th:text="${tempEmployee.address}" />
                     <td>
                         <a th:href="@{/employees/update(employeeId=${tempEmployee.id})}" class="btn btn-info btn-sm">
                             Update
