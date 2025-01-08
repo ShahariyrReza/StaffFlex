@@ -13,6 +13,7 @@ CREATE TABLE `employee` (
   `last_name` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `mobile` varchar(15) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -21,10 +22,10 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` VALUES 
-	(1,'shahariyr','reza','shahariyr.reza@hotmail.com','01703265352'),
-	(2,'Emma','Watson','emma.watson@hotmail.com','01703265352'),
-	(3,'Shibber','Ahmmed','shibber.ahmmed@yahoo.com','01703265352'),
-	(4,'Akash','Sarker','akash.sarker@gmail.com','01703265352'),
-	(5,'Mazher','Reza','mazher.reza@gmail.com','01703265352')
+	(1,'shahariyr','reza','shahariyr.reza@hotmail.com','01703265352', 'Khulna'),
+	(2,'Emma','Watson','emma.watson@hotmail.com','01703265352', 'Khulna'),
+	(3,'Shibber','Ahmmed','shibber.ahmmed@yahoo.com','01703265352', 'Khulna'),
+	(4,'Akash','Sarker','akash.sarker@gmail.com','01703265352', 'Khulna'),
+	(5,'Mazher','Reza','mazher.reza@gmail.com','01703265352', 'Khulna')
 
 
