@@ -1,130 +1,142 @@
-# StaffFlex
+# 👔 StaffFlex - Advanced Employee Management System
 
-StaffFlex is a Java Spring Boot MVC-based **Employee Management System** designed to manage employee records efficiently. This web application enables users to perform **CRUD operations** on employee data, including creating, reading, updating, and deleting employee records.
-
----
-
-## 🚀 **Key Features**
-- **Employee Management:** Manage employee details including First Name, Last Name, and Email.
-- **CRUD Operations:** Add, Update, and Delete employee records.
-- **Dynamic UI:** User-friendly interface powered by **Thymeleaf** and **Bootstrap**.
-- **Responsive Design:** Accessible on various devices with responsive UI elements.
+StaffFlex is a professional-grade **Employee Management System (EMS)** built with **Java Spring Boot 3.4**. It provides a robust, secure, and scalable RESTful API for handling modern workforce management needs, from attendance tracking to payroll and task assignments.
 
 ---
 
-## 🛠️ **Technologies Used**
-- **Java**
-- **Spring Boot**
-- **Thymeleaf**
-- **Bootstrap**
-- **HTML/CSS**
-- **MySQL**
+## ✨ Key Features
+
+- 🔐 **Secure Authentication:** Implementation of JWT (JSON Web Token) for stateless authentication.
+- 👥 **Comprehensive Employee CRUD:** Manage detailed employee profiles including department and designation.
+- 🕒 **Attendance Tracking:** Monitor employee check-ins and check-outs with date-time precision.
+- 📋 **Task Management:** Assign tasks to staff members and track their completion status.
+- 💰 **Payroll System:** Manage employee salaries and payroll records.
+- 🏖️ **Leave Management:** Handle leave requests and approval workflows.
+- 🏢 **Organizational Structure:** Manage Departments and Designations (Job Titles) dynamically.
+- 🏗️ **Role-Based Access Control (RBAC):** Different permissions for User and Admin roles.
+- 📖 **API Documentation:** Interactive API explorer powered by Swagger UI.
 
 ---
 
-## 📚 **Project Structure**
+## 🛠️ Technology Stack
+
+- **Framework:** [Spring Boot 3.4](https://spring.io/projects/spring-boot)
+- **Security:** [Spring Security](https://spring.io/projects/spring-security) & [JWT](https://jwt.io/)
+- **Database:** [MySQL](https://www.mysql.com/)
+- **Persistence:** [Spring Data JPA](https://spring.io/projects/spring-data-jpa) (Hibernate)
+- **Mapping:** [ModelMapper](http://modelmapper.org/) & [Lombok](https://projectlombok.org/)
+- **API Docs:** [SpringDoc OpenAPI (Swagger)](https://springdoc.org/)
+- **Build Tool:** Maven
+
+---
+
+## 📂 Project Structure
+
+```text
+src/main/java/com/shahariyr/StaffFlex/
+├── config/       # Security and App configurations
+├── controller/   # REST Controllers (API Endpoints)
+├── dto/          # Data Transfer Objects
+├── entity/       # JPA Entities (Database Tables)
+├── enums/        # Project Enums (Role types, Status etc.)
+├── exception/    # Custom Exception Handlers
+├── repository/   # Spring Data JPA Repositories
+├── security/     # JWT & Security Implementation
+└── service/      # Business Logic Layer
 ```
-src/
-├── main/
-│   ├── java/
-│   │   ├── com.shahariyr.StaffFlex/
-│   │   │   ├── com.shahariyr.StaffFlex.controller/
-│   │   │   ├── com.shahariyr.StaffFlex.dao/
-│   │   │   ├── com.shahariyr.StaffFlex.entity/
-│   │   │   ├── com.shahariyr.StaffFlex.service/
-│   ├── resources/
-│   │   ├── templates/
-│   │   │   ├── employee/
-│   │   ├── static/
-│   │   │   ├── css/
-│   │   │   ├── js/
-│   │   ├── application.properties
-└── pom.xml
-```
 
 ---
 
-## 📂 **Endpoints**
-- `GET /employee/list` → Display a list of all employees.
-- `GET /employee/form` → Display a form to add a new employee.
-- `POST /employee/save` → Save or update employee details.
-- `GET /employee/update/{id}` → Update an employee's information.
-- `GET /employee/delete/{id}` → Delete an employee record.
+## 🚀 Getting Started
 
----
+### Prerequisites
+- **Java 17** or higher
+- **Maven 3.x**
+- **MySQL Server**
 
-## 🖼️ **Screenshots**
-### List of Employee
-![List of employee](./Screenshoots/list.png)
-### Save an Employee
-![Save an employee](./Screenshoots/save.png)
-### Update an Employee
-![Update an employee](./Screenshoots/update.png)
-### Delete an Employee
-![Delete an employee](./Screenshoots/delete.png)
-
----
-
-## ⚙️ **Setup and Installation**
+### Setup & Installation
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/staffFlex.git
+   git clone https://github.com/ShahariyrReza/StaffFlex.git
+   cd StaffFlex
    ```
 
-2. **Navigate to Project Directory:**
-   ```bash
-   cd staffFlex
-   ```
-
-3. **Set Up MySQL Database:**
+2. **Database Configuration:**
+   Create a database named `employee_directory` in MySQL:
    ```sql
-   CREATE DATABASE staffflex_db;
+   CREATE DATABASE employee_directory;
    ```
 
-4. **Configure Database in `application.properties`:**
+3. **Configure `application.properties`:**
+   Open `src/main/resources/application.properties` and update your database credentials:
    ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/staffflex_db
-   spring.datasource.username=root
+   spring.datasource.url=jdbc:mysql://localhost:3300/employee_directory
+   spring.datasource.username=your_username
    spring.datasource.password=your_password
-   spring.jpa.hibernate.ddl-auto=update
    ```
 
-5. **Build the Application:**
+4. **Build and Run:**
    ```bash
    mvn clean install
-   ```
-
-6. **Run the Application:**
-   ```bash
    mvn spring-boot:run
    ```
 
-7. **Access the Application:**
-   Open your browser and visit: `http://localhost:8080`
-
----
-## 🤝 **Contribution**
-Contributions are welcome! If you'd like to contribute, please fork the repository and submit a pull request.
+5. **Access API Documentation:**
+   Once running, explore the APIs at: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 ---
 
-## 📜 **License**
-This project is licensed under the **MIT License**.
+## 🛣️ API Endpoints Summary
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/auth/register` | User Registration |
+| `POST` | `/api/auth/login` | User Login (Returns JWT) |
+| `GET` | `/api/employees` | List all employees |
+| `POST` | `/api/employees` | Add new employee |
+| `GET` | `/api/employees/{id}` | Get employee details |
+| `PUT` | `/api/employees/{id}` | Update employee info |
+| `DELETE` | `/api/employees/{id}` | Remove employee |
+| `POST` | `/api/attendance` | Record attendance |
+| `GET` | `/api/attendance` | View attendance records |
 
 ---
 
-## 📬 **Contact**
-- **Author:** Shahariyr Reza
-- **Email:** [shahariyr.reza@hotmail.com](mailto:shahariyr.reza@hotmail.com)
-- **GitHub:** [Shahariyr Reza](https://github.com/ShahariyrReza)
+## 🖼️ Screenshots
+
+*(Add your high-quality screenshots here)*
+
+### Dashboard / Employee List
+![Employee List](./Screenshoots/list.png)
+
+### API Explorer (Swagger)
+![Swagger UI](./Screenshoots/swagger_placeholder.png)
 
 ---
 
-Thank you for checking out **StaffFlex**! 😊🚀
+## 🤝 Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
-⭐ **If you like this project, give it a star!** ⭐
+## 📜 License
 
- 
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+## 📬 Contact
+
+- **Shahariyr Reza** - [shahariyr.reza@hotmail.com](mailto:shahariyr.reza@hotmail.com)
+- **GitHub:** [https://github.com/ShahariyrReza](https://github.com/ShahariyrReza)
+
+---
+⭐ **If you find this project useful, please give it a star!** ⭐
