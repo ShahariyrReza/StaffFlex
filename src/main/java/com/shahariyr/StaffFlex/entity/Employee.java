@@ -1,115 +1,61 @@
 package com.shahariyr.StaffFlex.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.shahariyr.StaffFlex.enums.EmployeeStatus;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.time.LocalDate;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "employee")
+@Table(name = "employees")
 public class Employee {
 
-	// define fields
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
 
-	@Column(name = "first_name")
-	private String firstName;
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
 
-	@Column(name = "last_name")
-	private String lastName;
+    @Column(nullable = false, unique = true)
+    private String email;
 
-	@Column(name = "email")
-	private String email;
+    @Column(name = "mobile_number")
+    private String mobileNumber;
 
-	@Column(name = "mobile")
-	private String mobileNumber;
+    private String address;
 
-	@Column(name = "address")
-	private String address;
+    @Column(name = "joining_date")
+    private LocalDate joiningDate;
 
-	// define no argument constructors
+    @Enumerated(EnumType.STRING)
+    private EmployeeStatus status;
 
-	public Employee() {
-		super();
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Department department;
 
-	public Employee(String firstName, String lastName, String email, String mobileNumber, String address) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.mobileNumber = mobileNumber;
-		this.address = address;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "designation_id")
+    private Designation designation;
 
-	public Employee(int id, String firstName, String lastName, String email, String mobileNumber, String address) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.mobileNumber = mobileNumber;
-		this.address = address;
-	}
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getMobileNumber() {
-		return mobileNumber;
-	}
-
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", mobileNumber=" + mobileNumber + ", address=" + address + "]";
-	}
-
+    // Helper method for linking
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+    }
 }

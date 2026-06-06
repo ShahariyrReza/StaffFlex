@@ -1,0 +1,11 @@
+package com.shahariyr.StaffFlex.repository;
+
+import com.shahariyr.StaffFlex.entity.Employee;
+import com.shahariyr.StaffFlex.entity.LeaveRequest;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface LeaveRepository extends JpaRepository<LeaveRequest, Long> {
+    List<LeaveRequest> findByEmployee(Employee employee);
+}

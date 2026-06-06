@@ -1,16 +1,17 @@
 package com.shahariyr.StaffFlex.service;
 
+import com.shahariyr.StaffFlex.dto.EmployeeDto;
 import java.util.List;
-
-import com.shahariyr.StaffFlex.entity.Employee;
 
 public interface EmployeeService {
 
-	List<Employee> findAll();
+    List<EmployeeDto> findAll();
 
-	Employee findById(int theId);
+    EmployeeDto findById(Long id);
 
-	void save(Employee theEmployee);
+    EmployeeDto createEmployee(EmployeeDto employeeDto);
 
-	void deleteById(int theId);
+    EmployeeDto updateEmployee(Long id, EmployeeDto employeeDto);
+
+    void deleteById(Long id);
 }
