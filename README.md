@@ -101,19 +101,6 @@ src/main/java/com/shahariyr/StaffFlex/
 | `POST` | `/api/attendance` | Record attendance |
 | `GET` | `/api/attendance` | View attendance records |
 
----
-
-## 🖼️ Screenshots
-
-*(Add your high-quality screenshots here)*
-
-### Dashboard / Employee List
-![Employee List](./Screenshoots/list.png)
-
-### API Explorer (Swagger)
-![Swagger UI](./Screenshoots/swagger_placeholder.png)
-
----
 
 ## 🤝 Contributing
 
